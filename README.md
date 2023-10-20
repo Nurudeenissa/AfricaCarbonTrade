@@ -6,13 +6,9 @@
     - [The idea](#the-idea)
   - [Demo video](#demo-video)
   - [The architecture](#the-architecture)
-  - [Long description](#long-description)
-    - [Shara](#Shara-1)
-    - [DID YOU KNOW?](#did-you-know)
     - [The Problem](#the-problem)
     - [SOLUTION](#solution)
   - [Project roadmap](#project-roadmap)
-        - [Shara currently does the following:](#Shara-currently-does-the-following)
   - [Live demo](#live-demo)
   - [Built with](#built-with)
     - [Online](#online)
@@ -129,9 +125,11 @@ You can find a running system to test at (https://cleantech-topaz.vercel.app/).
 - [React JS](https://reactjs.org) - JavaScript Library for building component base user interface
 - [Tailwind css](https://tailwindcss.com/docs/installation) - Used for styling the user interface
 - [Mongo DB](https://cloud.mongodb.com) - Database management system users
-- [Render](https://shara-api-vzrf.onrender.com) - Host the backend api
-- [Vercel](https://shara-delta.vercel.app) - Host frontend app
+- [Render](https://cleantech-api-vzrf.onrender.com) - Host the backend api
+- [Vercel](https://cleantech-topaz.vercel.app) - Host frontend app
 
 
 ### Github repositories
- FrontEnd [Africa Carbon Trade-online](https://cleantech-topaz.vercel.app)
+ FrontEnd [Africa Carbon Trade-online](https://github.com/Nurudeenissa/AfricaCarbonTrade.git) 
+ 
+ IOT Codes [Africa Carbon Trade-IOT Codes](https://github.com/Nurudeenissa/IOT-codes.git)
