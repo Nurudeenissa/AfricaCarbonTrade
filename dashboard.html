@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="js/jquery.min.js"></script>  
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clean Tech | Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.7/dist/flowbite.min.css" />
+</head>
+<body>
+    <!-- <div class="spin-wrapper h-screen flex justify-center items-center bg-gray-400">
+        <img class="animate-ping w-20 h-20" src="../images/an.png">
+    </div> -->
+    <div class='flex h-screen flex-col'>
+
+        <!-- HEADER STARTS HERE -->
+        <header class='bg-gray-100 shadow-lg flex flex-col p-4 mb-4 md:px-8'>
+            <p class="text-2xl">Hello, Farex!</p>
+            <p class="text-md">Here is your consumption in a glance</p>
+        </header>
+        <!-- HEADER ENDS HERE -->
+
+        <!-- MAIN STARTS HERE -->
+        <main class='flex justify-center mb-auto h-full overflow-auto'>
+            <div class='flex flex-col h-full w-full max-w-6xl px-3 md:px-5 lg:px-8'>
+                <!-- <div class='flex justify-center w-full rounded-lg py-1 md:mb-6 md:mt-4'>
+                    <div class='w-32 md:w-44'>
+                        <img class='' src="../images/anj.png" alt="">
+                    </div>
+                </div> -->
+                <div class="max-w-sm p-4 bg-white bg-opacity-25 border border-gray-200 rounded-lg shadow">
+                    <p class="mb-3 font-normal text-gray-700">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                </div>
+                <!-- <div class="mt-4 max-w-sm p-6 bg-white bg-opacity-25 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                </div> -->
+                <!-- <div class="mt-4 max-w-sm p-6 bg-white bg-opacity-25 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                </div> -->
+                <div class="flex w-full justify-between gap-2">
+                    <div class="mt-4 w-1/2 p-4 bg-white bg-opacity-25 border border-gray-200 rounded-lg shadow">
+                        <p class="font-normal text-gray-700">This Month</p>
+                        <p class=""><span class="font-bold text-2xl">128</span> <span class="text-xl font-normal">kWh</span></p>
+                        <p class="">$<span class="font-normal text-lg">18.07</span></p>
+
+                        <div id="column-chart"></div>
+  
+                    </div>
+                    <div class="mt-4 w-1/2 p-4 bg-white bg-opacity-25 border border-gray-200 rounded-lg shadow">
+                        <p class="font-normal text-gray-700">Last Month</p>
+                        <p class=""><span class="font-bold text-2xl">204</span> <span class="text-xl font-normal">kWh</span></p>
+                        <p class="">$<span class="font-normal text-lg">28.12</span></p>
+
+                        <div id="column-chart2"></div>
+  
+                    </div>
+                </div>
+
+                <div class='flex flex-col h-full gap-y-3 mt-3'>
+                    
+                    <!-- TRANSFER SECTION STARTS HERE -->
+                    
+                    
+                    <!-- TRANSACTION HISTORY SECTION STARTS HERE -->
+                        <div class='flex flex-col w-full py-4'>
+                            <div class="gap-2 flex justify-between">
+                                <!-- <button class="w-full bg-emerald-700 hover:bg-emerald-900 text-white font-bold py-2 px-4 rounded">
+                                    Sell
+                                </button>
+                                <button class="w-full bg-emerald-700 hover:bg-emerald-900 text-white font-bold py-2 px-4 rounded">
+                                    Buy
+                                </button> -->
+                                <a href="buy.html" class="flex justify-center w-full bg-blue-700 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded">
+                                    Sell
+                                </a>
+                                <a href="sell.html" class="flex justify-center w-full bg-blue-700 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded">
+                                    Buy
+                                </a>
+                            </div>
+                            
+                            <div id="chat-container"></div>
+                            <div class='flex flex-col h-full'>
+                                <p class="text-xl py-2 font-semibold">Power Consumption</p>
+                                <div class=" w-full px-4 bg-white bg-opacity-25 border border-gray-200 rounded-lg shadow">
+                                    <!-- <p class="font-normal text-gray-700 dark:text-gray-400">This Month</p>
+                                    <p class=""><span class="font-bold text-2xl">204</span> <span class="text-xl font-normal">kWh</span></p>
+                                    <p class=""><span class="font-normal text-lg">28.12</span> $</p>
+             -->
+                                    <div id="area-chart"></div>
+              
+                                </div>
+                            </div>
+                        </div>
+                    <!-- TRANSACTION HISTORY SECTION ENDS HERE -->
+                    
+                </div>
+            </div>
+        </main>
+        <!-- MAIN ENDS HERE -->
+
+        <!-- <a href="chat.html" class="fixed bottom-12 right-2">
+            <button id="chat-button" class="w-20 h-20 bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-2 rounded-full shadow-md">
+                <div class="text-4xl">
+                    <i class="fa-brands fa-rocketchat"></i>
+                </div>
+            </button>
+        </a> -->
+    
+        <!-- <script>
+            // JavaScript to toggle the chat window when the button is clicked
+            const chatButton = document.getElementById('chat-button');
+            const chatWindow = document.getElementById('chat-window');
+    
+            chatButton.addEventListener('click', () => {
+                chatWindow.classList.toggle('hidden');
+            });
+        </script> -->
+          
+        
+        <!-- FOOTER STARTS HERE -->
+        <footer class='flex w-full justify-center p-3 px-0 border-t border-1 bg-gray-300 bg-opacity-25'>
+            <div class='flex justify-around w-full max-w-5xl'>
+                <span class='text-blue-700 text-lg md:text-3xl'>
+                    <a href="dashboard.html"><i class='fa fa-home'></i></a>
+                </span>
+                <span class='text-blue-700 text-lg md:text-3xl'>
+                    <a href="payment.html"><i class='fa fa-wallet'></i></a>
+                </span>
+                <span class='text-blue-700 text-lg md:text-3xl'>
+                    <a href="support.html"><i class="fa-brands fa-rocketchat"></i></a>
+                </span>
+                <span class='text-blue-700 text-lg md:text-3xl'>
+                    <a href="analytics.html"><i class="fa-solid fa-chart-simple"></i></a>
+                </span>
+                <span class='text-blue-700 text-lg md:text-3xl'>
+                    <a href="settings.html"><i class='fa fa-gear'></i></a>
+                </span>
+            </div>
+        </footer>
+        <!-- FOOOTER ENDS HERE -->
+    </div>
+
+    <!-- MODAL SECTION STARTS HERE -->
+        <div id="popup-modal" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
+            <div class="relative w-full h-full max-w-md p-4 md:h-auto">
+                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                    <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center" data-modal-toggle="popup-modal">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>  
+                    </button>
+                    <div class="p-6 text-center">
+                        <svg class="mx-auto mb-4 text-gray-400 w-14 h-14 dark:text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Are you sure you want to log out?</h3>
+                        <a href="logout.php"><button data-modal-toggle="popup-modal" type="button" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
+                            Yes, I'm sure
+                        </button></a>
+                        <button data-modal-toggle="popup-modal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10">No, cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- MODAL SECTION ENDS HERE -->
+
+    <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script>
+        $(window).on('load', function(){
+            $('.spin-wrapper').fadeOut("slow");
+        });
+        </script>
+
+    <script>
+        // ApexCharts options and config
+        window.addEventListener("load", function() {
+        const options = {
+                colors: ["#1A56DB", "#FDBA8C"],
+                series: [
+                {
+                    name: "Organic",
+                    color: "#1A56DB",
+                    data: [
+                    { x: " ", y: 231 },
+                    { x: " ", y: 122 },
+                    { x: " ", y: 63 },
+                    { x: " ", y: 421 },
+                    { x: " ", y: 122 },
+                    { x: " ", y: 323 },
+                    { x: " ", y: 111 },
+                    ],
+                },
+                {
+                    name: "Social media",
+                    color: "#FDBA8C",
+                    data: [
+                    { x: " ", y: 232 },
+                    { x: " ", y: 113 },
+                    { x: " ", y: 341 },
+                    { x: " ", y: 224 },
+                    { x: " ", y: 522 },
+                    { x: " ", y: 411 },
+                    { x: " ", y: 243 },
+                    ],
+                },
+                ],
+                chart: {
+                type: "bar",
+                height: "100px",
+                fontFamily: "Inter, sans-serif",
+                toolbar: {
+                    show: false,
+                },
+                },
+                plotOptions: {
+                bar: {
+                    horizontal: false,
+                    columnWidth: "70%",
+                    borderRadiusApplication: "end",
+                    borderRadius: 8,
+                },
+                },
+                tooltip: {
+                shared: true,
+                intersect: false,
+                style: {
+                    fontFamily: "Inter, sans-serif",
+                },
+                },
+                states: {
+                hover: {
+                    filter: {
+                    type: "darken",
+                    value: 1,
+                    },
+                },
+                },
+                stroke: {
+                show: true,
+                width: 0,
+                colors: ["transparent"],
+                },
+                grid: {
+                show: false,
+                strokeDashArray: 4,
+                padding: {
+                    left: 2,
+                    right: 2,
+                    top: -14
+                },
+                },
+                dataLabels: {
+                enabled: false,
+                },
+                legend: {
+                show: false,
+                },
+                xaxis: {
+                floating: false,
+                labels: {
+                    show: true,
+                    style: {
+                    fontFamily: "Inter, sans-serif",
+                    cssClass: 'text-xs font-normal fill-gray-500 dark:fill-gray-400'
+                    }
+                },
+                axisBorder: {
+                    show: false,
+                },
+                axisTicks: {
+                    show: false,
+                },
+                },
+                yaxis: {
+                show: false,
+                },
+                fill: {
+                opacity: 1,
+                },
+            }
+    
+            if(document.getElementById("column-chart") && typeof ApexCharts !== 'undefined') {
+                const chart = new ApexCharts(document.getElementById("column-chart"), options);
+                chart.render();
+            }
+        });
+    </script>  
+    <script>
+        // ApexCharts options and config
+        window.addEventListener("load", function() {
+        const options = {
+                colors: ["#1A56DB", "#FDBA8C"],
+                series: [
+                {
+                    name: "Organic",
+                    color: "#1A56DB",
+                    data: [
+                    { x: " ", y: 231 },
+                    { x: " ", y: 122 },
+                    { x: " ", y: 63 },
+                    { x: " ", y: 421 },
+                    { x: " ", y: 122 },
+                    { x: " ", y: 323 },
+                    { x: " ", y: 111 },
+                    ],
+                },
+                {
+                    name: "Social media",
+                    color: "#FDBA8C",
+                    data: [
+                    { x: " ", y: 232 },
+                    { x: " ", y: 113 },
+                    { x: " ", y: 341 },
+                    { x: " ", y: 224 },
+                    { x: " ", y: 522 },
+                    { x: " ", y: 411 },
+                    { x: " ", y: 243 },
+                    ],
+                },
+                ],
+                chart: {
+                type: "bar",
+                height: "100px",
+                fontFamily: "Inter, sans-serif",
+                toolbar: {
+                    show: false,
+                },
+                },
+                plotOptions: {
+                bar: {
+                    horizontal: false,
+                    columnWidth: "70%",
+                    borderRadiusApplication: "end",
+                    borderRadius: 8,
+                },
+                },
+                tooltip: {
+                shared: true,
+                intersect: false,
+                style: {
+                    fontFamily: "Inter, sans-serif",
+                },
+                },
+                states: {
+                hover: {
+                    filter: {
+                    type: "darken",
+                    value: 1,
+                    },
+                },
+                },
+                stroke: {
+                show: true,
+                width: 0,
+                colors: ["transparent"],
+                },
+                grid: {
+                show: false,
+                strokeDashArray: 4,
+                padding: {
+                    left: 2,
+                    right: 2,
+                    top: -14
+                },
+                },
+                dataLabels: {
+                enabled: false,
+                },
+                legend: {
+                show: false,
+                },
+                xaxis: {
+                floating: false,
+                labels: {
+                    show: true,
+                    style: {
+                    fontFamily: "Inter, sans-serif",
+                    cssClass: 'text-xs font-normal fill-gray-500 dark:fill-gray-400'
+                    }
+                },
+                axisBorder: {
+                    show: false,
+                },
+                axisTicks: {
+                    show: false,
+                },
+                },
+                yaxis: {
+                show: false,
+                },
+                fill: {
+                opacity: 1,
+                },
+            }
+
+            if(document.getElementById("column-chart2") && typeof ApexCharts !== 'undefined') {
+                const chart = new ApexCharts(document.getElementById("column-chart2"), options);
+                chart.render();
+            }
+        });
+    </script>
+    <script>
+        // ApexCharts options and config
+        window.addEventListener("load", function() {
+        let options = {
+            chart: {
+            height: "100%",
+            maxWidth: "100%",
+            type: "area",
+            fontFamily: "Inter, sans-serif",
+            dropShadow: {
+                enabled: false,
+            },
+            toolbar: {
+                show: false,
+            },
+            },
+            tooltip: {
+            enabled: true,
+            x: {
+                show: false,
+            },
+            },
+            fill: {
+            type: "gradient",
+            gradient: {
+                opacityFrom: 0.55,
+                opacityTo: 0,
+                shade: "#1C64F2",
+                gradientToColors: ["#1C64F2"],
+            },
+            },
+            dataLabels: {
+            enabled: false,
+            },
+            stroke: {
+            width: 6,
+            },
+            grid: {
+            show: false,
+            strokeDashArray: 4,
+            padding: {
+                left: 2,
+                right: 2,
+                top: 0
+            },
+            },
+            series: [
+            {
+                name: "New users",
+                data: [1000, 5000, 1000, 5000, 1000, 5000, 1000, 5000, 1000, 5000, 1000, 5000, 1000, 5000],
+                color: "#1A56DB",
+            },
+            ],
+            xaxis: {
+            categories: ['01 February', '02 February', '03 February', '04 February', '05 February', '06 February', '07 February'],
+            labels: {
+                show: false,
+            },
+            axisBorder: {
+                show: false,
+            },
+            axisTicks: {
+                show: false,
+            },
+            },
+            yaxis: {
+            show: false,
+            },
+        }
+    
+        if (document.getElementById("area-chart") && typeof ApexCharts !== 'undefined') {
+            const chart = new ApexCharts(document.getElementById("area-chart"), options);
+            chart.render();
+        }
+        });
+    </script>
+
+<script>
+    window.watsonAssistantChatOptions = {
+      integrationID: "663764cd-f7fe-451f-a3c6-aa12cd778857", // The ID of this integration.
+      region: "au-syd", // The region your integration is hosted in.
+      serviceInstanceID: "c75f6d98-4002-4cd8-a588-0849db4b508c", // The ID of your service instance.
+      onLoad: function(instance) { instance.render(); }
+    };
+    setTimeout(function(){
+      const t=document.createElement('script');
+      t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+      document.head.appendChild(t);
+    });
+  </script>
+
+</body>
+</html>
